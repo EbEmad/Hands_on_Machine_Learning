@@ -5,6 +5,7 @@ def sigmoid(x):
 
 
 class LogisticRegression:
+    # this initizlization function
     def __intit__ (self,lr=0.001,n_iters=1000):
         self.lr=lr
         self.n_iters=n_iters
@@ -19,8 +20,8 @@ class LogisticRegression:
             predictions=sigmoid(linear_pred)
             dw=(1/n_samples)*(np.dot(x.T,(predictions-y)))
             db=(1/n_samples)*(np.sum(predictions-y))
-            self.weights-=self.lr*dw
-            self.bias-=self.lr*db
+            self.weights=self.weights-self.lr*dw
+            self.bias=self.bias-self.lr*db
 
     def predict(self,x):
         linear_pred=np.dot(x,self.weights)+self.bias
